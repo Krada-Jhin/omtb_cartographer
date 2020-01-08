@@ -1,0 +1,21 @@
+<launch>
+
+  
+  <include file="$(find omtb_gazebo)/launch/1tb_room1.launch">
+  <arg name="gui" default="true"/>
+  </include>
+  
+  <include file="$(find slam_lidar)/launch/slam.launch">
+     <arg name="slam_methods" value="cartographer_vlp16"/>
+     <arg name="configuration_basename" default="robot1_vlp16.lua"/>
+      
+  </include>
+
+    <include file="$(find omtb_control)/launch/automove_1tb_room1.launch">
+  </include>
+    
+    
+   <!-- <node pkg="omtb_control" type="save_bag.sh" name="justrecord" output="screen">  
+    </node>    -->
+  
+</launch>
